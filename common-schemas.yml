@@ -1,0 +1,47 @@
+openapi: 3.0.2
+info:
+  x-fragment: true
+  title: An include file to define common schemas.
+  version: 1.0.0
+
+paths: {}
+
+components:
+  schemas:
+    AssetBase:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        tags:
+          $ref: "#/components/schemas/Tags"
+
+    AssetDetailsBase:
+      allOf:
+        - $ref: "#/components/schemas/AssetBase"
+        - type: object
+          properties:
+            extended:
+              type: object
+              additionalProperties:
+                type: object
+
+    ListItem:
+      allOf:
+        - $ref: "#/components/schemas/AssetBase"
+        - type: object
+
+    Tags:
+      type: array
+      items:
+        type: string
+
+    Genres:
+      type: array
+      items:
+        type: string
+

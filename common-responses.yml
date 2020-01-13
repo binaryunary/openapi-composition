@@ -1,0 +1,59 @@
+openapi: 3.0.2
+info:
+  x-fragment: true
+  title: An include file to define common responses.
+  version: 1.0.0
+
+paths: {}
+
+components:
+  responses:
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+    NotFound:
+      description: A resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+    PagedList:
+      description: A paged list of items.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              total:
+                type: integer
+              page:
+                type: integer
+              page_size:
+                type: integer
+              items:
+                type: array
+                items:
+                  $ref: "common-schemas.yml#/components/schemas/ListItem"
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string

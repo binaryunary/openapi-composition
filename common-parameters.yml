@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  x-fragment: true # This is a fragment
+  title: An include file to define common request parameters.
+  version: 1.0.0
+
+paths: {}
+
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+
+    Genres:
+      name: genres
+      in: query
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+
+    Tags:
+      name: tags
+      in: query
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+
+  schemas: {}
+
+

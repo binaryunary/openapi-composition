@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Catalog API
+
+servers:
+  - url: https://TODO
+
+paths:
+  /movie:
+    $ref: "movies-api.yml#/paths/~1"
+  /movie/{id}:
+    $ref: "movies-api.yml#/paths/~1{id}"
+  /tvshow:
+    $ref: "tvshows-api.yml#/paths/~1"
+  /tvshow/{id}:
+    $ref: "tvshows-api.yml#/paths/~1{id}"
+
+components:
+  securitySchemes:  {}
+
+
+  parameters: {}
+
+

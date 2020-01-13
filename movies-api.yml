@@ -1,0 +1,51 @@
+openapi: 3.0.2
+info:
+  x-fragment: true # This is a fragment
+  title: An include file defining the movies API.
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      parameters:
+        - $ref: "common-parameters.yml#/components/parameters/Genres"
+        - $ref: "common-parameters.yml#/components/parameters/Page"
+      responses:
+        '200':
+          $ref: "common-responses.yml#/components/responses/PagedList"
+        '400':
+          $ref: "common-responses.yml#/components/responses/BadRequest"
+  /{id}:
+      get:
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Movie details.
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Movie"
+          '400':
+            $ref: "common-responses.yml#/components/responses/BadRequest"
+          '404':
+            $ref: "common-responses.yml#/components/responses/BadRequest"
+
+components:
+
+  schemas:
+    Movie:
+      allOf:
+        - $ref: "common-schemas.yml#/components/schemas/AssetDetailsBase"
+          properties:
+              genres:
+                type: array
+                items:
+                  type: string
+
+  responses: {}
+
