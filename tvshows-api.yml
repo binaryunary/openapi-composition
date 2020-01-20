@@ -12,7 +12,7 @@ paths:
         - $ref: "common-parameters.yml#/components/parameters/Page"
       responses:
         '200':
-          $ref: "common-responses.yml#/components/responses/PagedList"
+          $ref: "common-responses.yml#/components/responses/PagedResponse"
         '400':
           $ref: "common-responses.yml#/components/responses/BadRequest"
   /{id}:
@@ -47,5 +47,4 @@ components:
                 items:
                   type: string
 
-  responses: {}
 

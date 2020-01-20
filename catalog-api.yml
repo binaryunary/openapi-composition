@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.2
 info:
   version: 1.0.0
   title: Catalog API
@@ -19,6 +19,15 @@ paths:
 components:
   securitySchemes:  {}
 
+  schemas:
+    Movie:
+      $ref: "movies-api.yml#/components/schemas/Movie"
+    TvShow:
+      $ref: "tvshows-api.yml#/components/schemas/TvShow"
+    PagedList:
+      $ref: "common-schemas.yml#/components/schemas/PagedList"
+    Error:
+      $ref: "common-schemas.yml#/components/schemas/Error"
 
   parameters: {}
 

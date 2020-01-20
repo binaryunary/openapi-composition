@@ -35,6 +35,20 @@ components:
         - $ref: "#/components/schemas/AssetBase"
         - type: object
 
+    PagedList:
+      type: object
+      properties:
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ListItem"
+
     Tags:
       type: array
       items:
@@ -44,4 +58,21 @@ components:
       type: array
       items:
         type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
 
